@@ -52,7 +52,7 @@ jobs:
           git config --global user.name "Atul Nirbhavane"
           git config --global user.email "anirbhavane106@gmail.com"
 
-          git clone https://x-access-token:${GH_TOKEN}@github.com/${{ github.repository }}.wiki.git wiki
+          git clone https://x-access-token:${GH_TOKEN}@github.com/${{ github.repository }}/wiki
           cp -r docs/* wiki/
           cd wiki
           git add .
