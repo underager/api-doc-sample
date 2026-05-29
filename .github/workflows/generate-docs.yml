@@ -23,10 +23,11 @@ jobs:
       - name: Build
         run: dotnet build --configuration Release --no-restore
 
+      - name: Install Swashbuckle CLI
+        run: dotnet tool install --tool-path ./tools Swashbuckle.AspNetCore.Cli --version 10.1.7
+
       - name: Generate Swagger JSON
-        run: |
-          dotnet tool restore || true
-          swagger tofile --output swagger.json $(pwd)/bin/Release/net10.0/APIDocumentationSample.dll v1
+        run: ./tools/swagger tofile --output swagger.json $(pwd)/bin/Release/net10.0/APIDocumentationSample.dll v1
 
       - name: Setup Python
         uses: actions/setup-python@v5
